@@ -1049,7 +1049,7 @@ button {
     border-radius: 50%; /* This makes the image circular */
     object-fit: fill; /* Optional: ensures the image covers the entire area */
 }
- /* new */
+ /* Our beloved Teachers Section Sytling*/
 .team_section * {
     margin: 0;
     padding: 0;
