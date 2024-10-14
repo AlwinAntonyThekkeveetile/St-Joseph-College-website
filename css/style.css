@@ -1230,9 +1230,7 @@ img{
     transform: translateX(-100%);
     transition: all 0.5s ease;
 }
-.team-item:hover .img-box::before{
-    transform: translateX(0%);
-}
+
 .team-item .img-box img{
     width: 100%;
 }
@@ -1300,3 +1298,12 @@ img{
  .call_section ul li a:hover img {
     transform: scale(1.2); /* Enlarge icon on hover */
  }
+ .section-heading {
+    text-align: center;  /* Center the text horizontally */
+    font-size: 2.5rem;   /* Adjust the size for visibility */
+    font-weight: bold;   /* Make it bold for prominence */
+    margin: 0 auto 2rem; /* Center it with auto margin and add bottom spacing */
+    color: #333;         /* Adjust color for contrast */
+    font-family: 'Arial', sans-serif;  
+}
+  
