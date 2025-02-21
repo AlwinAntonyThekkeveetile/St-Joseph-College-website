@@ -1447,3 +1447,116 @@ img{
         font-size: 12px;
     }
 }
+/*Adhunike Course details text start*/
+.section_title::after {
+    content: "";
+    width: 80px;
+    height: 4px;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+
+/* Course List */
+.course_list {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+.course_list li {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #444;
+    padding-left: 30px;
+    position: relative;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.course_list li::before {
+    content: "✔";
+    color: #007bff;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    font-size: 18px;
+}
+
+/* CTA Section */
+.cta_section {
+    margin-top: 40px;
+    padding: 20px;
+    background: #007bff;
+    color: white;
+    border-radius: 12px;
+}
+
+.cta_button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 24px;
+    background: white;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    font-size: 18px;
+    transition: 0.3s ease-in-out;
+}
+
+.cta_button:hover {
+    background: #0056b3;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .course_list {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+/*Adhunike Course details text end*/
+
+/* Running Text Container */
+.running_text {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    color:black;
+    padding: 12px 0;
+    position: relative;
+}
+
+/* Scrolling Animation */
+.running_text p {
+    display: inline-block;
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    animation: scrollText 15s linear infinite;
+    min-width: 100%;
+}
+
+/* Keyframes for Smooth Scrolling */
+@keyframes scrollText {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .running_text p {
+        font-size: 16px;
+        animation: scrollText 10s linear infinite;
+    }
+}
