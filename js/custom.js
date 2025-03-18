@@ -369,3 +369,71 @@ $(function () {
 
 
 });
+ /* Video Ad Overlay Start
+     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+	 const videoOverlay = document.getElementById('videoOverlay');
+	 const adVideo = document.getElementById('adVideo');
+	 const closeBtn = document.getElementById('closeBtn');
+	 const soundToggle = document.getElementById('soundToggle');
+	 const playBtn = document.getElementById('playBtn');
+	 
+	 // Ensure video starts muted
+	 adVideo.muted = true;
+	 soundToggle.textContent = '🔇';
+	 
+	 if (videoOverlay && adVideo && closeBtn && soundToggle && playBtn) {
+	   // Attempt autoplay on load
+	   adVideo.play().then(() => {
+		 console.log('Video started playing');
+		 playBtn.style.display = 'none';
+		 closeBtn.style.display = 'block';
+		 soundToggle.style.display = 'block';
+	   }).catch(() => {
+		 console.log('Autoplay blocked. User interaction required.');
+		 playBtn.style.display = 'block';
+	   });
+	 
+	   // Play button to bypass autoplay block
+	   playBtn.addEventListener('click', () => {
+		 adVideo.muted = false;
+		 adVideo.play().catch(error => console.error('Video playback failed:', error));
+		 playBtn.style.display = 'none';
+		 closeBtn.style.display = 'block';
+		 soundToggle.style.display = 'block';
+	   });
+	 
+	   // Close button functionality
+	   closeBtn.addEventListener('click', () => {
+		 adVideo.pause();
+		 adVideo.currentTime = 0;
+		 videoOverlay.style.display = 'none';
+		 adVideo.src = "";
+		 adVideo.load();
+	   });
+	 
+	   // Sound Toggle functionality
+	   soundToggle.addEventListener('click', () => {
+		 adVideo.muted = !adVideo.muted;
+		 soundToggle.textContent = adVideo.muted ? '🔇' : '🔊';
+	   });
+	 
+	   // Restart video on tab return
+	   document.addEventListener('visibilitychange', () => {
+		 if (document.visibilityState === 'visible' && adVideo.paused) {
+		   adVideo.play().catch(error => console.error('Video resume failed:', error));
+		 }
+	   });
+	 
+	   // Prevent video from getting stuck
+	   window.addEventListener('beforeunload', () => {
+		 adVideo.pause();
+		 adVideo.src = "";
+		 adVideo.load();
+	   });
+	 } else {
+	   console.error('Video overlay elements not found');
+	 }
+	 
+	 
+ /* Video Ad Overlay End
+     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
