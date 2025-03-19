@@ -376,6 +376,19 @@ $(function () {
 	 const closeBtn = document.getElementById('closeBtn');
 	 const soundToggle = document.getElementById('soundToggle');
 	 const playBtn = document.getElementById('playBtn');
+	 const loader = document.getElementById('loader');
+	 // Display loader for 1.3 seconds before video
+  loader.style.display = 'block';
+  adVideo.style.display = 'none';
+
+  setTimeout(() => {
+    loader.style.display = 'none';
+    adVideo.style.display = 'block';
+    adVideo.play().catch(() => {
+      playBtn.style.display = 'block';
+    });
+  }, 1300);
+
 	 
 	 // Ensure video starts muted
 	 adVideo.muted = true;
